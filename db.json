@@ -23,6 +23,38 @@
       "deadline": "2026-06-15",
       "progress": 30,
       "category": "Security"
+    },
+    {
+      "id": "4",
+      "title": "Neural-Link Interface",
+      "status": "In Progress",
+      "deadline": "2026-08-12",
+      "progress": 45,
+      "category": "Neurotechnology"
+    },
+    {
+      "id": "5",
+      "title": "DeFi Liquidity Protocol",
+      "status": "Completed",
+      "deadline": "2026-03-01",
+      "progress": 100,
+      "category": "Blockchain"
+    },
+    {
+      "id": "6",
+      "title": "Smart City Grid Optimizer",
+      "status": "In Progress",
+      "deadline": "2026-11-30",
+      "progress": 15,
+      "category": "IoT & Infrastructure"
+    },
+    {
+      "id": "7",
+      "title": "Augmented Reality Navigator",
+      "status": "In Progress",
+      "deadline": "2026-07-22",
+      "progress": 80,
+      "category": "Mixed Reality"
     }
   ],
   "leaderboard": [
