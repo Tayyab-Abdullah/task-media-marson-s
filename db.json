@@ -1,0 +1,141 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "Quantum AI Dashboard",
+      "status": "In Progress",
+      "deadline": "2026-05-20",
+      "progress": 65,
+      "category": "Machine Learning"
+    },
+    {
+      "id": "2",
+      "title": "Eco-Track Mobile App",
+      "status": "Completed",
+      "deadline": "2026-04-10",
+      "progress": 100,
+      "category": "Sustainability"
+    },
+    {
+      "id": "3",
+      "title": "Cyber-Sec Audit Tool",
+      "status": "In Progress",
+      "deadline": "2026-06-15",
+      "progress": 30,
+      "category": "Security"
+    }
+  ],
+  "leaderboard": [
+    {
+      "id": "1",
+      "name": "Sarah Jenkins",
+      "xp": 12500,
+      "performance": "excellent",
+      "avatar": "https://i.pravatar.cc/150?u=sarah",
+      "rank": 1,
+      "role": "Lead Architect",
+      "joinedDate": "2025-01-15"
+    },
+    {
+      "id": "2",
+      "name": "David Chen",
+      "xp": 11800,
+      "performance": "excellent",
+      "avatar": "https://i.pravatar.cc/150?u=david",
+      "rank": 2,
+      "role": "Senior Developer",
+      "joinedDate": "2025-02-10"
+    },
+    {
+      "id": "3",
+      "name": "Elena Rodriguez",
+      "xp": 9500,
+      "performance": "good",
+      "avatar": "https://i.pravatar.cc/150?u=elena",
+      "rank": 3,
+      "role": "Product Designer",
+      "joinedDate": "2025-03-05"
+    },
+    {
+      "id": "4",
+      "name": "Marcus Thorne",
+      "xp": 8200,
+      "performance": "good",
+      "avatar": "https://i.pravatar.cc/150?u=marcus",
+      "rank": 4,
+      "role": "Backend Engineer",
+      "joinedDate": "2025-01-20"
+    },
+    {
+      "id": "5",
+      "name": "Aisha Khan",
+      "xp": 7100,
+      "performance": "medium",
+      "avatar": "https://i.pravatar.cc/150?u=aisha",
+      "rank": 5,
+      "role": "Frontend Specialist",
+      "joinedDate": "2025-04-12"
+    },
+    {
+      "id": "6",
+      "name": "Tom Baker",
+      "xp": 6500,
+      "performance": "medium",
+      "avatar": "https://i.pravatar.cc/150?u=tom",
+      "rank": 6,
+      "role": "DevOps Engineer",
+      "joinedDate": "2025-02-28"
+    },
+    {
+      "id": "7",
+      "name": "Lisa Wang",
+      "xp": 5900,
+      "performance": "medium",
+      "avatar": "https://i.pravatar.cc/150?u=lisa",
+      "rank": 7,
+      "role": "QA Analyst",
+      "joinedDate": "2025-03-22"
+    },
+    {
+      "id": "8",
+      "name": "James Wilson",
+      "xp": 4200,
+      "performance": "low",
+      "avatar": "https://i.pravatar.cc/150?u=james",
+      "rank": 8,
+      "role": "Junior Developer",
+      "joinedDate": "2025-05-01"
+    },
+    {
+      "id": "9",
+      "name": "Sophie Moore",
+      "xp": 3800,
+      "performance": "low",
+      "avatar": "https://i.pravatar.cc/150?u=sophie",
+      "rank": 9,
+      "role": "Data Analyst Intern",
+      "joinedDate": "2025-05-15"
+    },
+    {
+      "id": "10",
+      "name": "Robert Miller",
+      "xp": 3100,
+      "performance": "low",
+      "avatar": "https://i.pravatar.cc/150?u=robert",
+      "rank": 10,
+      "role": "Research Assistant",
+      "joinedDate": "2025-06-01"
+    }
+  ],
+  "user": {
+    "id": "u-101",
+    "name": "John Doe",
+    "email": "john.doe@techcorp.com",
+    "xp": 8200,
+    "performance": "good",
+    "avatar": "https://i.pravatar.cc/150?u=john",
+    "department": "Engineering",
+    "level": 42
+  },
+  "notes": []
+}
