@@ -35,24 +35,24 @@ export const LeaderboardSide: React.FC = () => {
   ];
 
   return (
-    <div className="bg-deep-navy rounded-[32px] p-6 lg:p-7 shadow-premium flex flex-col gap-6">
+    <div className="bg-deep-navy rounded-[32px] !p-6 lg:!p-7 shadow-premium flex flex-col !gap-6">
 
       {/* Title */}
-      <div className="border-[3px] border-accent-gold/40 rounded-2xl py-4 px-5 flex items-center justify-center bg-white/5 backdrop-blur-sm">
+      <div className="border-[3px] border-accent-gold/40 rounded-2xl !py-4 !px-5 flex items-center justify-center bg-white/5 backdrop-blur-sm">
         <h2 className="text-[20px] md:text-[22px] font-black text-white tracking-[0.25em] uppercase">
           LEADERBOARD
         </h2>
       </div>
 
       {/* Rows */}
-      <div className="flex flex-col gap-3.5">
+      <div className="flex flex-col !gap-3.5">
         {(rankings?.slice(0, 4) ?? Array(4).fill(null)).map((user, idx) => (
           <motion.div
             key={idx}
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4, delay: idx * 0.1 }}
-            className="bg-white rounded-[20px] py-3.5 px-5 flex items-center gap-4 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-default group"
+            className="bg-white rounded-[20px] !py-3.5 !px-5 flex items-center !gap-4 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5 cursor-default group"
           >
             {/* Rank circle */}
             <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center font-black text-[13px] shrink-0 transition-colors ${rankStyle[idx].text} ${rankStyle[idx].border} bg-white group-hover:bg-slate-50`}>
@@ -65,7 +65,7 @@ export const LeaderboardSide: React.FC = () => {
                 <div className="w-10 h-10 rounded-full bg-accent-gold flex items-center justify-center shadow-lg border-2 border-white">
                   <Crown className="w-5 h-5 text-white fill-white" />
                 </div>
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-red-500 text-white text-[7px] font-black px-2 py-0.5 rounded-sm tracking-widest whitespace-nowrap shadow-md uppercase">
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-red-500 text-white text-[7px] font-black !px-2 !py-0.5 rounded-sm tracking-widest whitespace-nowrap shadow-md uppercase">
                   Winner
                 </div>
               </div>
@@ -82,7 +82,7 @@ export const LeaderboardSide: React.FC = () => {
               <span className="font-extrabold text-slate-800 text-[14px] truncate leading-tight group-hover:text-primary-blue transition-colors">
                 {user?.name || "Giulia Verdini"}
               </span>
-              <div className="flex items-center gap-0.5 mt-1">
+              <div className="flex items-center !gap-0.5 !mt-1">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className={`w-[11px] h-[11px] ${i < starCounts[idx] ? "text-accent-gold fill-accent-gold" : "text-slate-200 fill-slate-100"}`} />
                 ))}

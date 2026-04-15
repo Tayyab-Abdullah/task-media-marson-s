@@ -17,7 +17,7 @@ export const TestCard: React.FC<TestCardProps> = ({ index }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
       whileHover={{ y: -2, x: 4 }}
-      className="w-full bg-white rounded-2xl p-5 flex items-center gap-5 shadow-sm hover:shadow-md transition-all cursor-pointer border border-slate-100 group"
+      className="w-full bg-white rounded-2xl !p-5 flex items-center !gap-5 shadow-sm hover:shadow-md transition-all cursor-pointer border border-slate-100 group"
     >
       {/* Avatar */}
       <div className="relative w-12 h-12 shrink-0">
@@ -36,7 +36,7 @@ export const TestCard: React.FC<TestCardProps> = ({ index }) => {
         <h3 className="font-extrabold text-primary-blue text-[15px] tracking-tight leading-tight group-hover:text-primary-blue-dark transition-colors">
           Admin logica test {index + 1}
         </h3>
-        <p className="text-[12px] text-slate-500 font-medium mt-1 leading-relaxed line-clamp-1 group-hover:text-slate-600 transition-colors">
+        <p className="text-[12px] text-slate-500 font-medium !mt-1 leading-relaxed line-clamp-1 group-hover:text-slate-600 transition-colors">
           Lorem ipsum is simply dummy text of the printing and typesetting industry.
         </p>
       </div>

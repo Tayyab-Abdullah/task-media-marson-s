@@ -1,100 +1,117 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { useAuth } from "@/context/AuthContext";
-import { Trophy, Zap, TrendingUp, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const XPCard: React.FC = () => {
   const { user, isLoading } = useAuth();
 
-  if (isLoading) {
+  // Fallback for demo if user context is empty, using your provided object
+  const currentUser = user || {
+    xp: 800,
+    level: 42,
+  };
+
+  const minXP = 500;
+  const maxXP = 1000;
+  const currentXP = currentUser.xp;
+
+  // Logic: (800 - 500) / (1000 - 500) = 0.6 or 60%
+  // To force 80% as requested:
+  const progressPercent = 80;
+
+  if (isLoading)
     return (
-      <div className="card-soft w-full max-w-sm animate-pulse space-y-4">
-        <div className="h-6 w-1/3 bg-zinc-200 dark:bg-zinc-800 rounded" />
-        <div className="h-10 w-full bg-zinc-200 dark:bg-zinc-800 rounded" />
-        <div className="h-4 w-2/3 bg-zinc-200 dark:bg-zinc-800 rounded" />
-      </div>
+      <div className="w-full h-[220px] animate-pulse bg-slate-200 rounded-[40px]" />
     );
-  }
-
-  if (!user) return null;
-
-  const currentLevelProgress = (user.xp % 1000) / 10; // Simple mock calculation
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="card-soft w-full p-6 relative overflow-hidden group border-2 border-transparent hover:border-indigo-500/20 transition-all shadow-xl hover:shadow-2xl bg-white dark:bg-zinc-950"
-    >
-      {/* Background Decorative Elements */}
-      <div className="absolute -top-10 -right-10 w-32 h-32 bg-indigo-500/10 dark:bg-indigo-400/10 rounded-full blur-3xl group-hover:scale-125 transition-transform duration-500" />
-      <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-amber-500/10 dark:bg-amber-400/10 rounded-full blur-3xl group-hover:scale-125 transition-transform duration-500" />
-
-      <div className="flex items-start justify-between mb-6 relative z-10">
-        <div>
-          <h3 className="text-zinc-500 dark:text-zinc-400 text-xs font-bold uppercase tracking-widest mb-1 flex items-center gap-2">
-            <Trophy className="w-3 h-3 text-amber-500" /> Experience Level
-          </h3>
-          <p className="text-3xl font-black text-zinc-900 dark:text-zinc-100 flex items-baseline gap-2">
-            Level {user.level}
-            <span className="text-xs font-medium text-zinc-500 bg-zinc-100 dark:bg-zinc-900 px-2 py-0.5 rounded-full">
-              {user.performance} performance
-            </span>
-          </p>
-        </div>
-        <div className="xp-badge">
-          <Zap className="w-4 h-4 fill-current" />
-          {user.xp.toLocaleString()} <span className="text-[10px]">XP</span>
-        </div>
+    <div className="w-full relative overflow-hidden rounded-[40px] bg-gradient-to-r from-[#99CCFF] via-[#74A9F6] to-[#1D71D4] h-[220px] flex items-center !px-0 shadow-2xl">
+      {/* LEFT CHARACTER */}
+      <div className="absolute left-4 bottom-0 w-[180px] h-[200px] z-20">
+        <Image
+          src="/doctor-mask.png"
+          alt="Doctor"
+          fill
+          className="object-contain object-bottom"
+        />
       </div>
 
-      <div className="space-y-4 relative z-10">
-        <div className="flex items-center justify-between text-xs font-bold">
-          <span className="text-zinc-600 dark:text-zinc-400 uppercase tracking-wide">
-            Next Level: {user.level + 1}
-          </span>
-          <span className="text-indigo-600 dark:text-indigo-400">
-            {currentLevelProgress}%
-          </span>
-        </div>
+      {/* CENTER PROGRESS SECTION - Forced to 80% of main container */}
+      <div className="w-[80%] mx-auto relative h-full flex flex-col justify-center z-10">
+        {/* Floating Tooltip Label */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          style={{ left: `${progressPercent}%` }}
+          className="absolute top-6 -translate-x-1/2 flex flex-col items-center z-30"
+        >
+          <div className="bg-white !px-5 !py-2 rounded-2xl shadow-xl border-b-4 border-slate-200">
+            <span className="text-[#2E69FF] font-black text-xl whitespace-nowrap">
+              {currentXP} XP
+            </span>
+          </div>
+          {/* Arrow / Circle indicator */}
+          <div className="w-7 h-7 bg-[#2E69FF] rounded-full flex items-center justify-center !-mt-2.5 border-[3px] border-white shadow-lg">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              strokeWidth="4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </div>
+        </motion.div>
 
-        {/* Progress Bar Container */}
-        <div className="relative h-4 w-full bg-zinc-100 dark:bg-zinc-900 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800">
+        {/* The Progress Bar Container */}
+        <div className="relative w-full h-16 bg-white/25 backdrop-blur-md rounded-full border-[4px] border-white/40 overflow-hidden !p-1.5 shadow-inner">
+          {/* Track Labels (Min/Max) */}
+          <div className="absolute inset-0 flex items-center justify-between !px-10 z-20 pointer-events-none">
+            <span className="text-white font-black text-xl drop-shadow-md">
+              {minXP} XP
+            </span>
+            <span className="text-white/70 font-black text-xl drop-shadow-md">
+              {maxXP} XP
+            </span>
+          </div>
+
+          {/* Progress Fill (Striped Orange) */}
           <motion.div
             initial={{ width: 0 }}
-            animate={{ width: `${currentLevelProgress}%` }}
-            transition={{ duration: 1, ease: "circOut", delay: 0.2 }}
-            className="absolute top-0 left-0 h-full bg-linear-to-r from-indigo-500 via-purple-500 to-indigo-600"
+            animate={{ width: `${progressPercent}%` }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="h-full rounded-full relative overflow-hidden shadow-[0_0_20px_rgba(255,165,0,0.4)]"
+            style={{
+              background:
+                "linear-gradient(45deg, #FFB347 25%, #FFCC33 25%, #FFCC33 50%, #FFB347 50%, #FFB347 75%, #FFCC33 75%, #FFCC33 100%)",
+              backgroundSize: "32px 32px",
+            }}
           >
-            {/* Animated Shine Effect */}
-            <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent w-full h-full -skew-x-45 animate-[shimmer_2s_infinite]" />
+            {/* White Glossy Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent" />
           </motion.div>
         </div>
-
-        <div className="flex items-center gap-6 pt-4 border-t border-zinc-100 dark:border-zinc-900">
-          <div className="flex flex-col gap-1">
-            <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-black">
-              Department
-            </span>
-            <span className="text-sm font-semibold flex items-center gap-1.5 text-zinc-900 dark:text-zinc-100">
-              <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
-              {user.department}
-            </span>
-          </div>
-          <div className="flex flex-col gap-1">
-            <span className="text-[10px] text-zinc-500 uppercase tracking-widest font-black">
-              Rank
-            </span>
-            <span className="text-sm font-semibold flex items-center gap-1.5 text-zinc-900 dark:text-zinc-100">
-              <TrendingUp className="w-3.5 h-3.5 text-green-500" />
-              Top 5%
-            </span>
-          </div>
-        </div>
       </div>
-    </motion.div>
+
+      {/* RIGHT CHARACTER */}
+      <div className="absolute right-4 bottom-0 w-[220px] h-[210px] z-20">
+        <Image
+          src="/doctor-coat.png"
+          alt="Doctor"
+          fill
+          className="object-contain object-bottom"
+        />
+      </div>
+
+      {/* Background Depth Tints */}
+      <div className="absolute right-0 top-0 bottom-0 w-1/4 bg-gradient-to-l from-blue-900/20 to-transparent" />
+    </div>
   );
 };
