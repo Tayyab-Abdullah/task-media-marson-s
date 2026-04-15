@@ -40,10 +40,10 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
 
           {/* Welcome Text */}
           <div className="flex flex-col !gap-1">
-            <h1 className="text-[#2D3648] text-[32px] font-bold leading-none">
+            <h1 className="text-[#2D3648] md:text-[32px] text-[20px] font-bold leading-none">
               Ciao, Dr. Luca!
             </h1>
-            <p className="text-[#A0AEC0] text-[18px] font-medium">
+            <p className="text-[#A0AEC0] md:text-[18px] text-[14px] font-medium">
               Inizia la giornata con un nuovo corso!
             </p>
           </div>
@@ -57,13 +57,13 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
 
             {/* The Yellow Content Layer - Adjusted with the red glow from the image */}
             <div className="absolute left-[-6px] top-[4px] bottom-[4px] w-[95%] bg-[#FFC34D] rounded-full flex items-center justify-center shadow-[10px_0px_20px_rgba(255,100,100,0.3)] z-10">
-              <span className="text-[#2D3648] text-[30px] font-black tracking-tight">
+              <span className="text-[#2D3648] text-[30px] font-black tracking-tight bg-[#FFC34D] !px-6 rounded-full">
                 345
               </span>
             </div>
 
             {/* The Coin Icon */}
-            <div className="absolute !right-5 z-20">
+            <div className="hidden md:absolute !right-5 z-20">
               <div className="w-10 h-10 relative">
                 <Image
                   src="/coin.png"
@@ -77,7 +77,7 @@ export const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
         </div>
 
         {/* RIGHT: Profile Image */}
-        <div className="flex items-center">
+        <div className="hidden md:flex items-center">
           <div className="relative w-20 h-20 rounded-full border-[6px] border-slate-50 overflow-hidden shadow-sm hover:ring-2 hover:ring-[#3ABEF9] transition-all cursor-pointer">
             <Image
               src={user?.avatar || "/profile-image.png"}
