@@ -8,13 +8,14 @@ import { LeaderboardSide } from "@/components/dashboard/LeaderboardSide";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<"CORSI" | "STORICO" | "LEADERBOARD">("CORSI");
+  const [activeTab, setActiveTab] = useState<
+    "CORSI" | "STORICO" | "LEADERBOARD"
+  >("CORSI");
   const tabs = ["CORSI", "STORICO", "LEADERBOARD"] as const;
 
   return (
     <MainLayout>
       <div className="flex flex-col gap-5 h-full w-full">
-
         {/* XP Banner */}
         <XPBanner />
 
@@ -25,16 +26,15 @@ export default function Home() {
         </div>
 
         {/* Mobile: tab switcher + content */}
-        <div className="md:hidden flex flex-col gap-4 w-full">
-
+        <div className="md:hidden flex flex-col !gap-6 w-full !mt-4">
           {/* Tab switcher */}
-          <div className="flex w-full bg-white rounded-[32px] p-[5px] shadow-sm border border-black/[0.05]">
+          <div className="flex w-full bg-white rounded-[32px] !p-[5px] shadow-sm border border-black/[0.05]">
             {tabs.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`flex-1 py-3.5 px-2 rounded-[28px] text-[11px] font-extrabold tracking-wide transition-all duration-300 relative ${
-                  activeTab === tab ? "text-white" : "text-[#8a94a6]"
+                className={`flex-1 !py-3.5 !px-2 rounded-[28px] !text-[12px] font-[900] tracking-tight transition-all duration-300 relative ${
+                  activeTab === tab ? "!text-white" : "text-[#8a94a6]"
                 }`}
               >
                 {activeTab === tab && (
@@ -45,13 +45,13 @@ export default function Home() {
                     transition={{ type: "spring", bounce: 0.2, duration: 0.55 }}
                   />
                 )}
-                <span className="relative z-10">{tab}</span>
+                <span className="relative z-10 uppercase">{tab}</span>
               </button>
             ))}
           </div>
 
           {/* Tab content */}
-          <div className="w-full min-h-[400px]">
+          <div className="w-full !min-h-[400px]">
             <AnimatePresence mode="wait">
               {activeTab === "CORSI" && (
                 <motion.div
@@ -82,13 +82,15 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -6 }}
                   transition={{ duration: 0.25 }}
-                  className="flex flex-col items-center justify-center py-20 text-center"
+                  className="flex flex-col items-center justify-center !py-20 text-center"
                 >
-                  <div className="w-20 h-20 bg-zinc-100 rounded-full flex items-center justify-center mb-4 text-4xl">
+                  <div className="w-20 h-20 bg-zinc-100 rounded-full flex items-center justify-center !mb-6 text-4xl shadow-inner">
                     🕒
                   </div>
-                  <h3 className="font-black text-zinc-400">Nessuna simulazione archiviata</h3>
-                  <p className="text-sm text-zinc-300 max-w-[200px] mt-2">
+                  <h3 className="font-[900] text-zinc-500 !text-[18px]">
+                    Nessuna simulazione archiviata
+                  </h3>
+                  <p className="!text-[14px] text-zinc-400 max-w-[240px] !mt-2 font-medium">
                     Qui troverai lo storico delle tue simulazioni passate.
                   </p>
                 </motion.div>
@@ -96,7 +98,6 @@ export default function Home() {
             </AnimatePresence>
           </div>
         </div>
-
       </div>
     </MainLayout>
   );
